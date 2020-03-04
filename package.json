@@ -1,0 +1,21 @@
+{
+  "name": "servermerntasks",
+  "version": "1.0.0",
+  "description": "MERN api from tasks manager",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ./index.js"
+  },
+  "keywords": [],
+  "author": "Adrian Nieves Uribe",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.3"
+  }
+}
