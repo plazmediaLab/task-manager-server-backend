@@ -17,7 +17,6 @@ router.post('/',
   auth,
   // Our validations
   [
-    // OPTIMIZE ·  03/08/2020 
     check('nameProject', 'The name project is obligatory').not().isEmpty()
   ],
   projectController.createProject

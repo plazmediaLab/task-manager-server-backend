@@ -1,6 +1,7 @@
 // Call express and keep it in a constant
 const express = require("express");
 const conectDB = require("./config/db");
+const morgan = require('morgan');
 
 // Use express in the app´s constant
 const app = express();
@@ -8,8 +9,9 @@ const app = express();
 // Connect to databases
 conectDB();
 
-// Enable express.json
-app.use(express.json({ extended: true }));
+// Middlewares
+app.use(express.json({ extended: true })); //-> Enable express.json
+app.use(morgan('tiny'))
 
 // Create port
 const PORT = process.env.PORT || 4000;
@@ -18,6 +20,7 @@ const PORT = process.env.PORT || 4000;
 app.use("/api/users", require("./router/users"));
 app.use("/api/auth", require("./router/auth"));
 app.use("/api/projects", require("./router/projects"));
+app.use("/api/tasks", require('./router/tasks'));
 
 // Run app
 app.listen(PORT, () => {
