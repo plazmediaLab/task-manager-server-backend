@@ -2,12 +2,16 @@
 const express = require("express");
 const conectDB = require("./config/db");
 const morgan = require('morgan');
+const cors = require('cors');
 
 // Use express in the app´s constant
 const app = express();
 
 // Connect to databases
 conectDB();
+
+// Enabled CORS
+app.use(cors());
 
 // Middlewares
 app.use(express.json({ extended: true })); //-> Enable express.json
