@@ -6,18 +6,22 @@ const router = express.Router();
 // Import express-valodator
 const { check } = require('express-validator');
 // Imports Controllers
-const authController = require('../controllers/authController')
+const authController = require('../controllers/authController');
+
+const auth = require('../middleware/auth');
 
 
-// Cretate one user
+// Login
 // api/auth
 router.post('/',
   // Our validations
-  [
-    check('email', 'Enter a valid email').isEmail(),
-    check('password', 'The password must have a minimum of 6 characters').isLength({ min: 6 })
-  ],
   authController.authenticateUser
 );
+
+// Get authenticated user
+router.get('/',
+  auth,
+  authController.authUser
+)
 
 module.exports  = router
