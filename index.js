@@ -18,7 +18,7 @@ app.use(express.json({ extended: true })); //-> Enable express.json
 app.use(morgan('tiny'))
 
 // Create port
-const PORT = process.env.PORT || 4000;
+const port = process.env.port || 4000;
 
 // Import routes
 app.use("/api/users", require("./router/users"));
@@ -27,6 +27,6 @@ app.use("/api/projects", require("./router/projects"));
 app.use("/api/tasks", require('./router/tasks'));
 
 // Run app
-app.listen(PORT, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Run server in port ${PORT}`);
 });
