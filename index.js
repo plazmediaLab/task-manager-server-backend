@@ -1,7 +1,7 @@
 // Call express and keep it in a constant
 const express = require("express");
 const conectDB = require("./config/db");
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const cors = require('cors');
 
 // Use express in the app´s constant
@@ -15,7 +15,7 @@ app.use(cors());
 
 // Middlewares
 app.use(express.json({ extended: true })); //-> Enable express.json
-app.use(morgan('tiny'))
+// app.use(morgan('tiny'))
 
 // Create port
 const port = process.env.port || 4000;
